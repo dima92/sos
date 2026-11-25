@@ -1,0 +1,76 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.requirements {
+  position: relative;
+  min-height: to-rem(960);
+  @include flex(column, center, stretch);
+  padding-block: fluid(145, 75);
+  background:
+    radial-gradient(
+      49.23% 50% at 64.32% 47.1%,
+      rgba(255, 255, 255, 0) 3.36%,
+      rgba(0, 0, 0, 0) 19.22%,
+      #080a0b 99.74%
+    ),
+    linear-gradient(180deg, #080a0b 0%, rgba(8, 10, 11, 0.4) 50%, #080a0b 100%),
+    url("/src/assets/images/requirements-bg.jpg") center / cover no-repeat;
+
+  @include respond-to("tablet") {
+    min-height: auto;
+    background:
+      linear-gradient(
+        180deg,
+        #080a0b 0%,
+        rgba(8, 10, 11, 0.8) 50%,
+        #080a0b 100%
+      ),
+      url("/src/assets/images/requirements-bg.jpg") 70% center / cover no-repeat;
+  }
+
+  &__head {
+    text-align: center;
+    margin-bottom: fluid(110, 48);
+  }
+
+  &__grid {
+    max-width: to-rem(575);
+    width: 100%;
+    @include grid(2, 1);
+    background-color: rgba(151, 151, 151, 0.4);
+    border: to-rem(1) solid rgba(151, 151, 151, 0.4);
+
+    @include respond-to("tablet") {
+      margin-inline: auto;
+    }
+
+    @include respond-to("mobile") {
+      @include grid(1, 1);
+    }
+  }
+
+  &__item {
+    padding: fluid(18, 14) fluid(20, 16);
+    background-color: rgba(8, 10, 11, 0.82);
+    backdrop-filter: blur(2px);
+
+    &--wide {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    font-family: $second-family;
+    @include fluid-text(24, 20, 1);
+    font-weight: 700;
+    letter-spacing: to-rem(2);
+    color: $accent-color;
+    text-transform: uppercase;
+    margin-bottom: to-rem(8);
+  }
+
+  &__value {
+    @include fluid-text(18, 14, 1.25);
+    color: $white-color;
+  }
+}

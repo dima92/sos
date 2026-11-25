@@ -1,0 +1,39 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.btn-primary {
+  @include flex(row, center, center, to-rem(14), $isInline: true);
+  padding: to-rem(18) to-rem(20);
+  background-color: $accent-color;
+  color: $dark-color;
+  font-weight: 700;
+  font-size: to-rem(16);
+  border-radius: to-rem(4);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $accent-color-hover;
+  }
+
+  &__price {
+    padding-left: to-rem(14);
+    border-left: to-rem(1) solid rgba(26, 25, 23, 0.3);
+  }
+}
+
+.section-label {
+  display: block;
+  font-family: $second-family;
+  @include fluid-text(24, 18, 1);
+  font-weight: 700;
+  letter-spacing: to-rem(2);
+  text-transform: uppercase;
+  margin-bottom: to-rem(8);
+}
+
+.section-title {
+  font-family: $second-family;
+  @include fluid-text(80, 36, 1);
+  letter-spacing: to-rem(3);
+  text-transform: uppercase;
+}

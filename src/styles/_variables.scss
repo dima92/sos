@@ -1,0 +1,25 @@
+@use "helpers/functions" as *;
+
+// Сетка
+$container-width: 1200;
+$container-padding-x: 15;
+
+// Анимации
+$transition-duration: 0.3s;
+$transition-base: all $transition-duration ease-in-out;
+
+// Шрифты
+$font-family: "Open Sans", sans-serif;
+$second-family: "Bebas Neue", sans-serif;
+
+// ==========================================================================
+// ЦВЕТОВАЯ ПАЛИТРА (UI-KIT) — ПРОЕКТ SOS
+// ==========================================================================
+
+$white-color: #fff;
+$black-color: #000;
+$dark-color: #1a1917;
+$accent-color: #ffb548;
+$accent-color-hover: #f3a32b;
+$light-grey-color: #979797;
+$red-color: #ff1313;

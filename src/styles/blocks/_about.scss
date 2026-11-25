@@ -1,0 +1,131 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.about {
+  position: relative;
+  padding-block: fluid(140, 70);
+  background:
+    radial-gradient(
+      54.57% 136.03% at 50% 48.04%,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0) 60.63%,
+      #080a0b 99.74%
+    ),
+    url("../../assets/images/about-bg.jpg") center / cover no-repeat;
+
+  &__container {
+    @include grid(2, 60, null, center);
+
+    @include respond-to("tablet") {
+      @include grid(1, 40);
+    }
+  }
+
+  &__title {
+    position: relative;
+    padding-bottom: to-rem(24);
+    margin-bottom: to-rem(32);
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 115%;
+      height: to-rem(3);
+      background-color: $white-color;
+      border-radius: to-rem(4);
+      z-index: 10;
+
+      @include respond-to("tablet") {
+        width: 100%;
+      }
+    }
+  }
+
+  &__text {
+    @include flex(column, flex-start, flex-start, 20);
+    max-width: to-rem(440);
+    margin-left: auto;
+    @include fluid-text(18, 14, 1.3);
+
+    @include respond-to("tablet") {
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    .underline-accent {
+      border-bottom: to-rem(4) solid $accent-color;
+    }
+  }
+
+  &__gallery {
+    position: relative;
+    @include flex(row, center, center);
+    max-width: to-rem(520);
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+.about-slider {
+  width: 100%;
+  max-width: to-rem(460);
+  border-radius: to-rem(6);
+  overflow: visible;
+
+  &__slide {
+    border-radius: to-rem(6);
+    overflow: hidden;
+    aspect-ratio: 502 / 610;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__pagination {
+    position: absolute;
+    bottom: to-rem(24);
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    @include flex(row, center, center, 24);
+
+    .swiper-pagination-bullet {
+      width: to-rem(14);
+      height: to-rem(14);
+      background: transparent;
+      border: to-rem(1.5) solid $white-color;
+      opacity: 1;
+      transition: background-color $transition-duration ease;
+
+      &-active {
+        background: $white-color;
+      }
+    }
+  }
+
+  &__next {
+    position: relative;
+    z-index: 10;
+    margin-left: to-rem(24);
+    color: $white-color;
+    transition: transform $transition-duration ease;
+
+    svg path {
+      stroke: currentColor;
+    }
+
+    @include hover {
+      color: $accent-color;
+      transform: translateX(to-rem(4));
+    }
+
+    @include respond-to("mobile") {
+      display: none;
+    }
+  }
+}

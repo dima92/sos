@@ -1,0 +1,133 @@
+@use "../helpers" as *;
+@use "../variables" as *;
+
+.footer {
+  padding-top: fluid(40, 30);
+  padding-bottom: fluid(48, 32);
+  background-color: #080a0b;
+
+  &__top {
+    @include flex(row, space-between, center, 32);
+    padding-bottom: fluid(32, 24);
+    border-bottom: to-rem(1) solid rgba(255, 255, 255, 0.5);
+
+    @include respond-to("tablet") {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    transition: opacity $transition-duration ease;
+
+    img {
+      width: fluid(90, 64);
+      height: fluid(90, 64);
+    }
+
+    @include hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__nav-list {
+    @include flex(row, center, center, fluid(48, 20), wrap);
+  }
+
+  &__nav-link {
+    font-size: to-rem(12);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $white-color;
+    transition: color $transition-duration ease;
+
+    @include hover {
+      color: $accent-color;
+    }
+  }
+
+  &__socials {
+    @include flex(row, center, center, 44);
+
+    @include respond-to("mobile") {
+      gap: to-rem(32);
+    }
+  }
+
+  &__social-link {
+    @include flex(row, center, center);
+    color: $white-color;
+    transition:
+      color $transition-duration ease,
+      transform $transition-duration ease;
+
+    @include hover {
+      color: $accent-color;
+      transform: translateY(to-rem(-2));
+    }
+
+    &--youtube {
+      color: $red-color;
+
+      @include hover {
+        color: $accent-color;
+      }
+    }
+  }
+
+  &__bottom {
+    @include flex(row, space-between, center, 20);
+    padding-top: to-rem(22);
+
+    @include respond-to("tablet-sm") {
+      flex-direction: column;
+      text-align: center;
+      gap: to-rem(16);
+    }
+  }
+
+  &__copy {
+    font-size: to-rem(14);
+    color: $white-color;
+    opacity: 0.5;
+  }
+
+  &__legal {
+    @include flex(row, center, center, 0, wrap);
+
+    li {
+      @include flex(row, center, center);
+
+      &:not(:last-child)::after {
+        content: "|";
+        margin-inline: to-rem(10);
+        color: $white-color;
+        font-size: to-rem(12);
+      }
+    }
+
+    @include respond-to("mobile") {
+      flex-direction: column;
+      gap: to-rem(10);
+
+      li:not(:last-child)::after {
+        display: none;
+      }
+    }
+  }
+
+  &__legal-link {
+    font-size: to-rem(12);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $white-color;
+    transition: color $transition-duration ease;
+
+    @include hover {
+      color: $accent-color;
+    }
+  }
+}
